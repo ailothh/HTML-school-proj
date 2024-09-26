@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--Winkler 9/25/2024
+The validator does say trailing slash on void elements has no effect />-->
+    <style>
+        table{
+            width: 50%;
+            margin: 0 auto
+        }
+        caption{
+            caption-side:bottom;
+        }
+        th{
+            color: white;
+            background-color:dimgray;
+            text-align: left;
+        }
+        td{
+            background-color: gainsboro;
+            height: 35px;
+        }
+        p.indent{
+            text-indent:20px;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Section 3.2.1</title>
+</head>
+<body>
+    <section>
+    <h2>3.2.1 input Type color</h1>
+    <p> The <strong>color input type</strong> (Fig. 3.1, lines 20–21) 
+        enables the user to enter a color. At the time of this writing, 
+        most browsers render the color input type as a text 
+        field in which the user can enter a hexadecimal 
+        code or a color name. In the future, when you click
+        a color input, browsers will likely display a color 
+        picker similar to the Microsoft Windows color dialog 
+        shown in Fig. 3.2.</p>
+    <hr>
+    <figure>
+        <center><img src="https://easternflorida.instructure.com/courses/1497609/files/66703033/preview" alt="Color Palette"></center>
+        <hr>
+        <figcaption><strong>Fig 3.2</strong> | A dialog for chooing colors.</figcaption>
+    </figure><br>
+    </section>
+
+    <section>
+     <h3>autofocus <i>Attribute</i></h3>
+       The <strong>autofocus attribute</strong> (Fig. 3.1, line 20)—an optional 
+        attribute that can be used in only one input element on
+        a form—automatically gives the focus to the input element,
+        allowing the user to begin typing in that element immediately.
+        Figure 3.3 shows auto-focus on the color element—the first 
+        input element in our form—as rendered in Chrome. 
+        You do not need to include autofocus in your forms.</p>
+    <hr>
+    <figure>
+        <center><img src="https://easternflorida.instructure.com/courses/1497609/files/66703040/preview" alt="Types Demo"></center>
+        <hr>
+        <figcaption><strong>Fig. 3.3</strong> | Autofocus in the color input element using Chrome.</figcaption>
+        </figure><br>
+    </section>
+
+    <section>
+    <h4><i>Validation</i></h4>
+    <p> Traditionally it’s been difficult to validate user input, such as 
+        ensuring that an e-mail ad-dress, URL,date or time is entered in the proper 
+        format. The new HTML 5 input types are self validating on the client side, 
+        eliminating the need to add complicated JavaScript code to your web pages to 
+        validate user input, reducing the amount of invalid data submitted and consequently 
+        reducing Internet traffic between the server and the client to correct invalid input. 
+        The server should still validate all user input.
+    </p>
+    <!--Call indent class to indent this paragraph only-->
+    <p class="indent"> When a user enters data into a form then submits the form (in this example, by  clicking the 
+        <strong>Submit</strong> button), the browser immediately checks the self-validating elements to ensure that 
+        the data is correct. For example, if a user enters an incorrect hexadecimal color value when 
+        using a browser that renders the color elements as a text field (e.g., Chrome), a callout 
+        pointing to the element will appear, indicating that an invalid value was entered (Fig. 3.4).
+        Figure 3.5 lists each of the new HTML5 input types and provides examples of the proper formats 
+        required for each type of data to be valid.
+    </p>
+    <hr>
+    <figure>
+        <center><img src="https://easternflorida.instructure.com/courses/1497609/files/66703024/preview" alt="Types Demo2"></center>
+        <hr>
+        <figcaption><strong>Fig. 3.4</strong> | Validating a color input in Chrome.</figcaption>
+    </figure>
+    <!--Start of table padding and spacing 0 to groupview as one color-->
+    <table cellspacing="0" cellpadding="0">
+        <caption><strong>Fig. 3.5</strong> | Self-validating input types.</caption>
+        <thead>
+            <tr>
+                <th>input type</th>
+                <th>Format</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>color</td>
+                <td>Hexidecimal code</td>
+            <tr>
+                <td>date</td>
+                <td>yyyy-mm-dd</td>
+            <tr>
+                <td>datetime</td>
+                <td>yyyy-mm-dd</td>
+            <tr>
+                <td>datetime-local</td>
+                <td>yyyy-mm-ddThh:mm</td>
+            <tr>
+                <td>month</td>
+                <td>yyyy-mm-dd</td>
+            <tr>
+                <td>number</td>
+                <td>Any numerical value</td>
+            <tr>
+                <td>email</td>
+                <td>name@domain.com</td>
+            <tr>
+                <td>url</td>
+                <td>http://www.domainname.com</td>
+            <tr>
+                <td>time</td>
+                <td>hh:mm</td>
+            <tr>
+                <td>week</td>
+                <td>yyyy-Wnn</td>
+            </tr>
+        </tbody>
+    </table>
+    <p>If you want to bypass validation, you can add the <strong>formnovalidate</strong>
+        attribute to input type submit in line 101: 
+    </p>
+    <p style="background-color:lightgray">&lt;input type = "submit" value = "Submit" formnovalidate /&gt
+    </p>
+    </section>
+</body>
+</html>
