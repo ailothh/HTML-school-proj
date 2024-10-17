@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capital One</title>
+    <style>
+        body{
+            background-color: rgb(52, 52, 128);
+            background-image: url("background.jpg");
+            background-size: cover;
+        }
+        script{
+             text-decoration: solid red;
+        }
+    </style>
+</head>
+<script type="text/javascript">
+    var accountNum;
+    var balance;
+    var totalCharge;
+    var totalCredits;
+    var creditLimit;
+    var newBalance;
+    accountNum = parseInt(window.prompt("Account Number: "));
+    balance = parseInt(window.prompt("Balance at the beginning of the month: "));
+    totalCharge = parseInt(window.prompt("Total of all items charged by this customer this month: "));
+    totalCredits = parseInt(window.prompt("Total of all credits applied to this customer's account this month: "));
+    creditLimit = parseInt(window.prompt("Allowed credit limit: "));
+    newBalance = balance + totalCharge-totalCredits;
+    document.writeln("<h1>New Balance: "+newBalance+"</h1>");
+    if (newBalance>creditLimit){
+        document.writeln("<h1>Credit Limit Exceeded</h1>");
+    }
+</script>
+<body>
+</body>
+</html>

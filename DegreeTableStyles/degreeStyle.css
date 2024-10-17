@@ -1,0 +1,18 @@
+table ,td,th{
+    border-collapse: collapse;
+    border: 5px solid black;
+}
+thead:first-child{
+    font-size: 18pt;
+    font-weight: bold;
+    text-align: center;
+}
+thead:nth-child(2){
+    font-size: 14pt;
+    text-decoration: underline;
+    text-align: center; 
+}
+td{
+    font-size: 12pt;
+    text-align: left;
+}
