@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Salary Range Counters</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        table {
+            margin: auto;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+        }
+        input {
+            padding: 10px;
+            margin-top: 10px;
+            width: 200px;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+<h1>Company Salary Range Counters</h1>
+
+<input type="number" id="grossSales" placeholder="Enter gross sales" />
+<button onclick="submitSales()">Submit</button>
+<button onclick="clearData()">Clear</button>
+
+<table>
+    <thead>
+        <tr>
+            <th>Range</th>
+            <th>Number of Employees</th>
+        </tr>
+    </thead>
+    <tbody id="salaryTable">
+        <tr><td>$200 - $299</td><td>0</td></tr>
+        <tr><td>$300 - $399</td><td>0</td></tr>
+        <tr><td>$400 - $499</td><td>0</td></tr>
+        <tr><td>$500 - $599</td><td>0</td></tr>
+        <tr><td>$600 - $699</td><td>0</td></tr>
+        <tr><td>$700 - $799</td><td>0</td></tr>
+        <tr><td>$800 - $899</td><td>0</td></tr>
+        <tr><td>$900 - $999</td><td>0</td></tr>
+        <tr><td>$1000 and over</td><td>0</td></tr>
+    </tbody>
+</table>
+
+<script>
+    // Initialize an array to keep track of the number of employees in each salary range
+    let salaryRanges = Array(9).fill(0); // 9 ranges
+
+    function submitSales() {
+        const grossSales = parseFloat(document.getElementById('grossSales').value);
+        if (isNaN(grossSales) || grossSales < 0) {
+            alert("Please enter a valid gross sales amount.");
+            return;
+        }
+
+        // Calculate net salary
+        const baseSalary = 200;
+        const commissionRate = 0.09;
+        const netSalary = Math.floor(baseSalary + (grossSales * commissionRate)); // Truncate to integer
+
+        // Determine the salary range
+        if (netSalary >= 200 && netSalary < 300) {
+            salaryRanges[0]++;
+        } else if (netSalary >= 300 && netSalary < 400) {
+            salaryRanges[1]++;
+        } else if (netSalary >= 400 && netSalary < 500) {
+            salaryRanges[2]++;
+        } else if (netSalary >= 500 && netSalary < 600) {
+            salaryRanges[3]++;
+        } else if (netSalary >= 600 && netSalary < 700) {
+            salaryRanges[4]++;
+        } else if (netSalary >= 700 && netSalary < 800) {
+            salaryRanges[5]++;
+        } else if (netSalary >= 800 && netSalary < 900) {
+            salaryRanges[6]++;
+        } else if (netSalary >= 900 && netSalary < 1000) {
+            salaryRanges[7]++;
+        } else if (netSalary >= 1000) {
+            salaryRanges[8]++;
+        }
+
+        // Update the table
+        updateTable();
+        // Clear the input field
+        document.getElementById('grossSales').value = '';
+    }
+
+    function updateTable() {
+        const tableBody = document.getElementById('salaryTable');
+        for (let i = 0; i < salaryRanges.length; i++) {
+            tableBody.rows[i].cells[1].innerText = salaryRanges[i];
+        }
+    }
+    function clearData() {
+        salaryRanges.fill(0); // Reset the salary ranges
+        updateTable(); // Update the table to show zeros
+        document.getElementById('grossSales').value = ''; // Clear the input field
+    }
+</script>
+
+</body>
+</html>

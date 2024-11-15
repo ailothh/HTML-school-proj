@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindrome Table</title>
+    <style>
+        /*center*/
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /*center*/
+        #container {
+            text-align: center;
+        }
+
+        th,td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: rgb(0, 0, 0);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <h1>Palindrome Table</h1>
+        <div id="table-container"></div>
+    </div>
+    <script>
+        // Prompt for 5 inputs
+        var strings = [];
+        for (var i = 0; i < 5; i++) {
+            var userInput = prompt("Enter string " + (i + 1) + ":");
+            strings.push(userInput);
+        }
+        //check if palindrome
+        function isPalindrome(str) {
+            var strNum = str.toString().toLowerCase();
+            var reversed = strNum.split('').reverse().join('');
+            return strNum == reversed;
+        }
+        //table
+        let tableHTML = `
+            <table>
+                <thead>
+                    <tr>
+                        <th>String</th>
+                        <th>Palindrome?</th>
+                    </tr>
+                </thead>
+                <tbody>
+        `;
+
+        //add a row for the input each string
+        strings.forEach(str => {
+            var palindromeOutput = isPalindrome(str) ? 'YES' : 'NO';
+            tableHTML += `
+                <tr>
+                    <td>${str}</td>
+                    <td>${palindromeOutput}</td>
+                </tr>
+            `;
+        });
+
+        tableHTML += `
+                </tbody>
+            </table>
+        `;
+
+        // Display table
+        document.getElementById("table-container").innerHTML = tableHTML;
+    </script>
+</body>
+</html>

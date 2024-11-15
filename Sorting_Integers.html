@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorting Integers</title>
+    <style>
+        table, th, td {
+            border: 2px solid black;
+            border-collapse: collapse;
+            padding: 15px;
+            text-align: center;
+            margin-top: 10px; /*spaces*/
+            background-color: white;
+            margin: auto; /*center*/
+        }
+        button {
+            margin:auto; /*center*/
+        }
+        body {
+            background-color: rgb(238, 96, 96);
+            text-align: center; /*center*/
+        }
+    </style>
+</head>
+<body>
+<h2>Sorting Integers</h2>
+<button onclick="sorting()">Enter Array Values</button>
+<div id="output"></div>
+<script>
+    function sorting() {
+        var numbers = [];
+        for (var i = 0; i < 5; i++) {
+            var input;
+            do {//prompt
+                input = prompt("Enter integer " + (i + 1) + " of 5:");
+            } while (isNaN(input));// not a num
+            numbers.push(parseInt(input));//add to numbers[]
+        }
+        var tableunsorted = "<h3>Order Entered</h3><table><tr>";
+        for (var i = 0; i < numbers.length; i++) {
+            tableunsorted += "<td>" + numbers[i] + "</td>";
+        }
+        tableunsorted += "</tr></table>";//add table
+    
+        var sortednums = numbers.sort()
+        var sortedtable = "<h3>Sorted in Ascending Order</h3><table><tr>";
+        for (var i = 0; i < sortednums.length; i++) {
+            sortedtable += "<td>" + sortednums[i] + "</td>";
+        }
+        sortedtable += "</tr></table>";//add table
+        //show tables
+        document.getElementById("output").innerHTML = tableunsorted + sortedtable;
+    }
+</script>
+</body>
+</html>

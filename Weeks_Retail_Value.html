@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week's Retail Value</title>
+    <script>
+        var productNumber, quantity, totalRetailValue=0, price=0;
+    while (true) {
+        //Prompt for product number
+        productNumber = parseInt(prompt("Enter the product number, enter 0 to quit:"));
+        //quit
+        if (productNumber === 0) {
+            break;
+        }
+        //Set price for product num
+        switch (productNumber) {
+            case 1:
+                price = 2.98;
+                break;
+            case 2:
+                price = 4.50;
+                break;
+            case 3:
+                price = 9.98;
+                break;
+            case 4:
+                price = 4.49;
+                break;
+            case 5:
+                price = 6.87;
+                break;
+            //out of bounds
+            default:
+                alert("Enter a number between 1 and 5.");
+                continue; //skip
+        }
+        quantity = parseInt(prompt("Enter the quantity sold:"));
+        //Calculate the retail value for this product and add it to the total
+        totalRetailValue += price * quantity;
+    }
+    //Display
+    document.writeln("<h1>Total retail value of all the products sold: $"+totalRetailValue+"</h1>");
+    </script>
+</head>
+<body>
+</body>
+</html>
